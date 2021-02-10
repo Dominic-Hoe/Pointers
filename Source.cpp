@@ -1,7 +1,10 @@
 #include<iostream>
 
 // Standard logging function for outputting text to a console window
+
 #define LOG(x) std::cout << x << std::endl;
+
+// The main function
 
 int main() {
 	int var = 8;
@@ -13,18 +16,27 @@ int main() {
 	// Pointers are typeless, so long as you cast the value of the pointer to the type of the pointer (as shown below)...
 	// everything will be fine.
 	// double* ptr = (double*)&var;
+
 	int* ptr = &var;
+
+	// Something worth mentioning here - in this instance, the pointer cannot have a "void" type and be assigned an integer.
+	// This is because the value it is being assigned is an integer.
+
 	*ptr = 10;
+
 	// As mentioned before, ptr is just a reference to var. Pointers store memory addresses, which can be read from and written to.
 	// The "*ptr" shown above is known as "dereferencing" the pointer, meaning that what's *actually* being overwritten is the
 	// original value var. When logging var, the output will be 10.
 
 	// In essence, what's happening here is calling *ptr says "Hey, get me this variable from this memory address" and then that
 	// memory address can be written to/read from.
+
 	LOG(var);
 	LOG(*ptr);
+
 	// This yields 1, which, in boolean sense, means yes, because 0 = false and 1 = true. "var" is the same as "ptr" because
 	// "ptr" is just a reference to var!
+
 	LOG((var == *ptr));
 	std::cin.get();
 	return 0;
